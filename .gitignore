@@ -35,3 +35,4 @@ build/
 .DS_Store
 /reports/
 /src/main/resources/binaries/unix/chrome/
+/test-output/

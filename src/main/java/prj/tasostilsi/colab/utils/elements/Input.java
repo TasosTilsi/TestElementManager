@@ -3,9 +3,10 @@ package prj.tasostilsi.colab.utils.elements;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import prj.tasostilsi.colab.utils.WebDriverFactory;
 import prj.tasostilsi.colab.utils.common.Wait;
 
-public class Input {
+public class Input extends WebDriverFactory {
 
     private WebElement entryField;
 
@@ -40,5 +41,10 @@ public class Input {
 
     public boolean isInputEnabled() {
         return entryField.isEnabled();
+    }
+
+    public void verifyInvalidInputEntered(String color){
+        Wait.getInstance().forElement(entryField);
+        Assert.assertEquals(entryField.getCssValue("border-color"), color);
     }
 }

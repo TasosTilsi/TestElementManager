@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite thread-count="1" verbose="1" name="TempTest" annotations="JDK" parallel="tests">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+    <test name="TC_UI_DEMO_001">
+        <classes>
+             <class name="prj.tasostilsi.colab.testSuites.TS_UI_DEMO.TC_UI_DEMO_001"/>
+        </classes>
+    </test>
+
+</suite>

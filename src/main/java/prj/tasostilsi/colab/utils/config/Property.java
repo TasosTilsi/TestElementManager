@@ -71,15 +71,15 @@ public class Property {
 	}
 
 	public static String getTestNgSuites() {
-		return getResourcesPath() + "/test_suites";
+		return getTestResourcesPath() + "/test_suites";
 	}
 
 	public static String getOutputDir() {
-		return getResourcesPath()+"/test_data/outputDir/";
+		return getTestResourcesPath()+ "/test_data/outputDir/";
 	}
 
 	public static String getInputDir() {
-		return getResourcesPath() + "/test_data/inputDir/";
+		return getTestResourcesPath() + "/test_data/inputDir/";
 	}
 
 	public static String getFileExtension(String filename) {
@@ -111,6 +111,13 @@ public class Property {
 
 	public static String getResourcesPath() {
 		String filePathString = getAbsolutePath() + "/src/main/resources";
+		File f = new File(filePathString);
+		if (!f.exists())
+			filePathString = getAbsolutePath();
+		return filePathString;
+	}
+	public static String getTestResourcesPath() {
+		String filePathString = getAbsolutePath() + "src/test/resources";
 		File f = new File(filePathString);
 		if (!f.exists())
 			filePathString = getAbsolutePath();

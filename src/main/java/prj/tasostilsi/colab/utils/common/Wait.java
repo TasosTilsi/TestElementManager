@@ -10,11 +10,7 @@ import prj.tasostilsi.colab.utils.config.Property;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
-
-import static java.sql.DriverManager.getDriver;
 
 public class Wait extends BaseTest {
 
@@ -24,7 +20,6 @@ public class Wait extends BaseTest {
     private static volatile Wait instance = null;
 
     private Wait(){
-
     }
 
     public static Wait getInstance() {

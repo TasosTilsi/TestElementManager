@@ -5,11 +5,14 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.log4testng.Logger;
 import prj.tasostilsi.colab.utils.WebDriverFactory;
 import prj.tasostilsi.colab.utils.common.Wait;
 
 
 public class Button extends WebDriverFactory {
+
+    Logger LOGGER = Logger.getLogger(Button.class);
 
     protected WebElement element;
 
@@ -22,7 +25,7 @@ public class Button extends WebDriverFactory {
             Wait.getInstance().forElement(element);
             element.click();
         } else {
-            System.out.println("ERROR Element ID is NOT clickable.");
+            LOGGER.error("ERROR Element ID is NOT clickable.");
         }
         Wait.getInstance().forPageToLoad();
     }
@@ -33,9 +36,10 @@ public class Button extends WebDriverFactory {
             Actions action = new Actions(getDriver());
             action
                     .click(element)
+                    .build()
                     .perform();
         } else {
-            System.out.println("ERROR Element ID is NOT clickable.");
+            LOGGER.error("ERROR Element ID is NOT clickable.");
         }
 
         try {
@@ -54,7 +58,7 @@ public class Button extends WebDriverFactory {
             ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();", element);
 
         } else {
-            System.out.println("ERROR Element ID is NOT clickable.");
+            LOGGER.error("ERROR Element ID is NOT clickable.");
         }
         Wait.getInstance().forPageToLoad();
     }
@@ -69,7 +73,7 @@ public class Button extends WebDriverFactory {
                     .build()
                     .perform();
         } else {
-            System.out.println("ERROR Element ID is NOT clickable.");
+            LOGGER.error("ERROR Element ID is NOT clickable.");
         }
         Wait.getInstance().forPageToLoad();
     }

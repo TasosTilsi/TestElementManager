@@ -61,8 +61,8 @@ public class WebDriverFactory {
 		if (remoteUrl != null && !remoteUrl.isEmpty())
 			((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
 
+		Wait.getInstance().forPageToLoad();
 		driver.manage().window().maximize();
-
 	}
 
 	private WebDriver launchBrowserRemote(String browserName, String remoteUrl) throws MalformedURLException,
