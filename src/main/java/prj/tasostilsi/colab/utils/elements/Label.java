@@ -22,7 +22,7 @@ public class Label extends WebDriverFactory {
     public void verifyText(String entryData) {
         if (entryData != null) {
             Wait.getInstance().forElement(element);
-            Assert.assertEquals(element.getAttribute("value"), entryData,
+            Assert.assertEquals(element.getText(), entryData,
                     "Label area isn't equal to '" + entryData + "'.");
         }
     }

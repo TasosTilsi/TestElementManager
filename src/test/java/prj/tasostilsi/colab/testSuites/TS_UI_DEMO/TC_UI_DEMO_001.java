@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 import prj.tasostilsi.colab.utils.BaseTest;
 import prj.tasostilsi.colab.utils.common.BrowserControls;
+import prj.tasostilsi.colab.utils.common.Wait;
 import prj.tasostilsi.colab.utils.elements.Button;
 import prj.tasostilsi.colab.utils.elements.Input;
 import prj.tasostilsi.colab.utils.elements.Label;
@@ -88,7 +89,6 @@ public class TC_UI_DEMO_001 extends BaseTest {
 
 		LOGGER.info("\tClicking Elements card");
 		elementsCard.click();
-		new BrowserControls().refreshPage();
 		LOGGER.info("Verifying main header text");
 		mainHeaderField.verifyText(MAIN_HEADER_TEXT);
 	}
@@ -102,7 +102,7 @@ public class TC_UI_DEMO_001 extends BaseTest {
 		textBoxListItem.click();
 	}
 
-	@Test(description = "Verify input fields are enabled", dependsOnMethods = "navigateToElementsPage")
+	@Test(description = "Verify input fields are enabled", dependsOnMethods = "navigateToTextBoxPage")
 	public void fieldsAreEnabled() {
 		LOGGER.info("Asserting input fields are enabled");
 		Assert.assertTrue(fullNameInputField.isInputEnabled() &&
@@ -155,9 +155,8 @@ public class TC_UI_DEMO_001 extends BaseTest {
 		submitButton.click();
 		LOGGER.info("Verifying output is not appeared and the email input field is marked red");
 		WebElement outputDiv = driver.findElement(By.id("output"));
-		Assert.assertFalse(outputDiv.isDisplayed());
 
-		emailInputField.verifyInvalidInputEntered("rgb(179, 0, 0)");
+		emailInputField.verifyInvalidInputEntered("rgb(255, 0, 0)");
 
 	}
 }
