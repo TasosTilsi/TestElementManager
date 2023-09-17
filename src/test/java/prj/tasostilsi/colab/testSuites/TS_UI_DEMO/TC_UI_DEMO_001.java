@@ -11,13 +11,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 import prj.tasostilsi.colab.utils.BaseTest;
-import prj.tasostilsi.colab.utils.common.BrowserControls;
-import prj.tasostilsi.colab.utils.common.Wait;
 import prj.tasostilsi.colab.utils.elements.Button;
 import prj.tasostilsi.colab.utils.elements.Input;
 import prj.tasostilsi.colab.utils.elements.Label;
-
-import java.lang.reflect.Field;
+import prj.tasostilsi.colab.utils.elements.Link;
 
 
 public class TC_UI_DEMO_001 extends BaseTest {
@@ -96,7 +93,7 @@ public class TC_UI_DEMO_001 extends BaseTest {
 	@Test(description = "Navigate to TextBox page", dependsOnMethods = "navigateToElementsPage")
 	public void navigateToTextBoxPage() {
 		LOGGER.info("Verify textbox is enabled");
-		Assert.assertTrue(textBoxListItem.isButtonEnabled(),"Button is not enabled");
+		Assert.assertTrue(textBoxListItem.isEnabled(),"Button is not enabled");
 
 		LOGGER.info("Clicking textbox");
 		textBoxListItem.click();
@@ -109,7 +106,7 @@ public class TC_UI_DEMO_001 extends BaseTest {
 				emailInputField.isInputEnabled() &&
 				currAddressInputField.isInputEnabled() &&
 				permAddressInputField.isInputEnabled() &&
-				submitButton.isButtonEnabled(),"Input fields are not enabled");
+				submitButton.isEnabled(),"Input fields are not enabled");
 	}
 
 	@Test(description = "Input data in input fields", dependsOnMethods = "fieldsAreEnabled")
@@ -154,7 +151,6 @@ public class TC_UI_DEMO_001 extends BaseTest {
 		LOGGER.info("Clicking submit button");
 		submitButton.click();
 		LOGGER.info("Verifying output is not appeared and the email input field is marked red");
-		WebElement outputDiv = driver.findElement(By.id("output"));
 
 		emailInputField.verifyInvalidInputEntered("rgb(255, 0, 0)");
 

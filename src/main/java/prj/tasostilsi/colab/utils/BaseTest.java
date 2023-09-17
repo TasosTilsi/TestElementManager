@@ -8,6 +8,7 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import prj.tasostilsi.colab.utils.common.Common;
 import prj.tasostilsi.colab.utils.common.Report;
 import prj.tasostilsi.colab.utils.common.Wait;
 import prj.tasostilsi.colab.utils.config.Property;
@@ -21,6 +22,7 @@ import java.util.Date;
 public class BaseTest extends WebDriverFactory {
 	
 	public Report testReport = new Report();
+	public Common common = new Common();
 
 	@BeforeTest
 	public void setUp() {

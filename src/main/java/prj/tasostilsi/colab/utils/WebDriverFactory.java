@@ -31,7 +31,7 @@ public class WebDriverFactory {
 			driver.get(Property.getURL());
 		}catch (Exception e){
 			System.out.println(e);
-			new BrowserControls().refreshPage();
+			new BrowserControls(driver).refreshPage();
 		}
 		Wait.getInstance().forPageToLoad();
 	}
