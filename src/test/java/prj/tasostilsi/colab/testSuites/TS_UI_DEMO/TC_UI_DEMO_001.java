@@ -1,5 +1,8 @@
 package prj.tasostilsi.colab.testSuites.TS_UI_DEMO;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.testng.AllureTestNg;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,15 +11,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 import prj.tasostilsi.colab.utils.BaseTest;
 import prj.tasostilsi.colab.utils.elements.Button;
 import prj.tasostilsi.colab.utils.elements.Input;
 import prj.tasostilsi.colab.utils.elements.Label;
-import prj.tasostilsi.colab.utils.elements.Link;
 
 
+@Listeners(AllureTestNg.class)
 public class TC_UI_DEMO_001 extends BaseTest {
 
 	Logger LOGGER = Logger.getLogger(TC_UI_DEMO_001.class);
@@ -79,17 +83,22 @@ public class TC_UI_DEMO_001 extends BaseTest {
 		permAddressInputField = new Input(permAddressInputFieldElement);
 		submitButton = new Button(submitButtonElement);
 	}
-
+	
 	@Test(description = "Navigate to Elements page")
 	public void navigateToElementsPage() {
 		LOGGER.info("Navigate to Elements page");
+		Allure.step("Navigate to Elements page");
+		
 
 		LOGGER.info("\tClicking Elements card");
+		Allure.step("\tClicking Elements card");
 		elementsCard.click();
 		LOGGER.info("Verifying main header text");
+		Allure.step("Verifying main header text");
 		mainHeaderField.verifyText(MAIN_HEADER_TEXT);
 	}
-
+	
+	@Attachment(value = "My image", type = "image/png")
 	@Test(description = "Navigate to TextBox page", dependsOnMethods = "navigateToElementsPage")
 	public void navigateToTextBoxPage() {
 		LOGGER.info("Verify textbox is enabled");

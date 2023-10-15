@@ -1,21 +1,12 @@
 package prj.tasostilsi.colab.utils.common;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
-import java.io.IOException;
-
 
 public class Report {
-	
-	private ExtentReports extent;
-	private ExtentTest test;
 	
 	public Report() {
 	}
@@ -47,53 +38,11 @@ public class Report {
 	}
 	
 	public void logAction(int step, String logText) {
-		this.logInfo(step + ") " + logText);
+		logger(step , logText);
 	}
 
 	public void logResponse(int step, String logText) {
-		this.logInfo("\t" + step + ") " + logText);
-	}
-	
-	public void initializeReport(String reportPath) {
-		// Initialize ExtentReports and attach the HTML report file
-		ExtentSparkReporter htmlReporter = new ExtentSparkReporter(reportPath);
-		extent = new ExtentReports();
-		extent.attachReporter(htmlReporter);
-	}
-	
-	public void createTest(String testName) {
-		// Create a new test in the report
-		test = extent.createTest(testName);
-	}
-	
-	public void logInfo(String message) {
-		// Log an informational message
-		test.log(Status.INFO, message);
-	}
-	
-	public void logSkip(String message) {
-		// Log an skipped message
-		test.log(Status.SKIP, message);
-	}
-	
-	public void logPass(String message) {
-		// Log a pass status with a message
-		test.log(Status.PASS, message);
-	}
-	
-	public void logFail(String message) {
-		// Log a fail status with a message
-		test.log(Status.FAIL, message);
-	}
-	
-	public void addScreenshotToReport(String path) throws IOException {
-		// Capture a screenshot and embed it in the report
-		test.addScreenCaptureFromPath(path);
-	}
-	
-	public void flushReport() {
-		// Save the report and close resources
-		extent.flush();
+		logger(step,logText);
 	}
 	
 }

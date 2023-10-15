@@ -36,3 +36,5 @@ build/
 /reports/
 /src/main/resources/binaries/unix/chrome/
 /test-output/
+/allure-results/
+/.allure/

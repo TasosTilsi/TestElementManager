@@ -8,6 +8,7 @@ To start run this tests or develop more scripts, you must have the following
 * Fork, Clone, or Download this project
 * Java 11 setted in your system
 * Maven setted in your system
+* Install [Allure Framework CLI](https://allurereport.org/docs/gettingstarted/installation/) in your system for the reporting.
 * Open a terminal/command prompt/git bash/etc where the pom.xml file is located and run
 ```bash
 mvn clean install
